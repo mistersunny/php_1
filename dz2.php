@@ -1,84 +1,53 @@
 <?php
 // 1.
 echo 'Задание 1.<br/>';
-$a = rand(0,200);
-$b = rand(0,200);
+$a = rand(-10,10);
+$b = rand(-10,10);
 echo 'a = ' , "$a <br/>" , 'b = ' , "$b <br/>";
 if ($a >= 0 && $b >= 0) echo $a - $b;
 elseif ($a < 0 && $b < 0) echo $a * $b;
-else echo ($a + $b);
+else echo $a + $b;
 
 // 2.
 echo '<br/>Задание 2.<br/>';
 $a = rand(0,15);
 switch ($a) {
-    case '0';
-    case '1';
-    case '2';
-    case '3';
-    case '4';
-    case '5';
-    case '6';
-    case '7';
-    case '8';
-    case '9';
-    case '10';
-    case '11';
-    case '12';
-    case '13';
-    case '14';
-    case '15';
+    case $a;
         for ($i=$a; $i<=15; $i++) echo $i." ";
     break;
     // Либо такой вариант. Хотя вообще не понятно зачем здесь нужен switch
     // case '0':
-    //     echo 0123456789101112131415';
-    // break;
+    //     echo 0';
     // case '1':
-    //     echo '123456789101112131415';
-    // break;
+    //     echo '1';
     // case '2':
-    //     echo '23456789101112131415';
-    // break;
+    //     echo '2';
     // case '3':
-    //     echo '3456789101112131415';
-    // break;
+    //     echo '3';
     // case '4':
-    //     echo '456789101112131415';
-    // break;
+    //     echo '4';
     // case '5':
-    //     echo '56789101112131415';
-    // break;
+    //     echo '5';
     // case '6':
-    //     echo '6789101112131415';
-    // break;
+    //     echo '6';
     // case '7':
-    //     echo '789101112131415';
-    // break;
+    //     echo '7';
     // case '8':
-    //     echo '89101112131415';
-    // break;
+    //     echo '8';
     // case '9':
-    //     echo '9101112131415';
-    // break;
+    //     echo '9';
     // case '10':
-    //     echo '101112131415';
-    // break;
+    //     echo '10';
     // case '11':
-    //     echo '1112131415';
-    // break;
+    //     echo '11';
     // case '12':
-    //     echo '112131415';
-    // break;
+    //     echo '12';
     // case '13':
-    //     echo '131415';
-    // break;
+    //     echo '13';
     // case '14':
-    //     echo '1415';
-    // break;
+    //     echo '14';
     // case '15':
     //     echo '15';
-    // break;
     default:
         # code...
         break;
@@ -128,12 +97,15 @@ echo mathOperation(2,4,'+');
 // 6.
 echo '<br/>Задание 6.<br/>';
 
-$val = 4;
-function power($val=3, $pow=3){
-    if ($pow == 2) return $val * $val;
-    else return $val * power($val,$pow-1);
+$val = rand(-5, 5);
+$pow = rand(-5, 5);
+function power($val, $pow){
+    return  ($pow < 0 ? power(1/$val, -$pow):
+            ($pow == 0 ? 1 : 
+            ($pow == 1 ? $val :
+            $val * power($val, $pow-1))));
 }
-echo power();
+echo power($val, $pow);
 
 // 7.
 echo '<br/>Задание 7.<br/>';
@@ -145,14 +117,13 @@ function rus_time(){
     $chasa = [2,3,4,22,23];
     $minuta = [1,21,31,41,51];
     $minuti = [2,3,4,22,23,24,32,33,34,42,43,44,52,53,54];
+    $h = (in_array($h, $chas) ? $h . ' час' :
+         (in_array($h, $chasa) ? $h . ' часа' :
+         $h . ' часов'));
 
-    if (in_array($h, $chas)) $h = $h . ' час';
-    elseif (in_array($h, $chasa)) $h = $h . ' часа';
-    else $h = $h . ' часов';
-
-    if (in_array($m, $minuta)) $m = $m . ' минута';
-    elseif (in_array($m, $minuti)) $m = $m . ' минуты';
-    else $m = $m . ' минут';
+    $m = (in_array($m, $minuta) ? $m . ' минута' :
+         (in_array($m, $minuti) ? $m . ' минуты' :
+         $m . ' минут'));
 
     echo "$h $m";
 }
