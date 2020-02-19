@@ -183,16 +183,18 @@ echo '<br/>';
  */
 echo '<br/>Задание 8.<br/>';
 
-foreach ($cities as $obl => $goroda) {
-    if (strpos(implode($goroda), 'К')<>0) {//если в строке склееной из значений массива городов есть буква К, то
+foreach ($cities as $obl => $goroda) {// для каждого массива городов проверяем
+    if (strpos(implode($goroda), 'К') !== false) {//если в строке склееной из значений массива городов есть буква К, то
       echo $obl , ' область:<br/>';//выводим название этой области
-      unset ($towns);
+      unset ($towns);// удаляем переменную towns
       foreach ($goroda as $gorod) {//для каждой такой области проверяем города
-          if (substr($gorod, 0, 2) == "К") {//если первая буква названия города К, то
-            $towns[] = $gorod;
+          if (mb_substr($gorod, 0, 1) == "К") {//если первая буква названия города К, то
+            $towns[] = $gorod; //добавляем этот город в массив towns, таким образом он будет содержать все города данной области начинающиеся с буквы К
           }
       }
-      foreach ($towns as $town) echo ($town == end($towns) ? "$town." : "$town, ");
+      foreach ($towns as $town){// каждый элемент массива towns 
+        echo ($town == end($towns) ? "$town." : "$town, ");// выводим на экран через запятую, а после последнего элемента ставим точку
+      }
       echo '<br/>';
     }
 }
