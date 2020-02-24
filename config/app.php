@@ -7,6 +7,11 @@ return [
         'logPath' => ROOT . "/data/logs",
         'templatesPath' => ROOT . '/templates',
 
+        'imagesURL' => '/img',
+        
+        'smallImagesPath' => 'img/small',
+        'bigImagesPath' => 'img/big',
+
         'assets' => [
             'css' => [
                 '/css/bootstrap.min.css',

@@ -14,9 +14,7 @@ function routeHome() {
 }
 
 function routeError() {
-
     $echo = render('site/error');
-
     echo $echo;
 }
 
