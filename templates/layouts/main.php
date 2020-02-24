@@ -2,15 +2,16 @@
 /**
  * @var string $content - содержимое страницы на отрисовку
  */
+global $config;
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title><?= $config['name'] ?></title>
+    <title><?= $config['app']['name'] ?></title>
 <link rel="shortcut icon" href="/img/logo.png">
 
-<?php foreach ($config['assets']['css'] as $file) { ?>
+<?php foreach ($config['app']['assets']['css'] as $file) { ?>
     <link rel="stylesheet" href="<?= $file ?>">
 <?php } ?>
 </head>
@@ -23,7 +24,7 @@
     </div>
 </div>
 
-<?php foreach ($config['assets']['js'] as $file) : ?>
+<?php foreach ($config['app']['assets']['js'] as $file) : ?>
     <script src="<?= $file ?>"></script>
 <?php endforeach; ?>
 </body>

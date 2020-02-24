@@ -15,15 +15,11 @@
  */
 function render(string $template, array $data = [], bool $withLayout = true, string $layout = 'main') {
     global $config;
-
     // путь к шаблонам
     $templates = [
         'layout' => "{$config['app']['templatesPath']}/layouts/{$layout}.php",
         'page' => "{$config['app']['templatesPath']}/{$template}.php"
     ];
-
-    // загружаем настройки приложения для глобального доступа
-    $data['config'] = $config['app'];
 
     // подгружаем содержимое шаблона
     $pageView = getTemplateContent($templates['page'], $data);
@@ -44,11 +40,11 @@ function render(string $template, array $data = [], bool $withLayout = true, str
  *
  * @param string $filepath Путь к шаблону
  * @param array $data Массив данных для обработки
- *
  * @return string HTML-код щаблона
  */
 function getTemplateContent(string $filepath, array $data) {
     // открываем буфер вывода
+
     ob_start();
     // извлекаем переменные из переданного массива
     // ['user' => 'Admin', 'password' => '123123'] ======> $user = 'Admin'; $password='123123';
