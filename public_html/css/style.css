@@ -1,0 +1,12 @@
+th {
+    border:1px solid blue;
+}
+td {
+    border:1px solid blue;
+}
+.button {
+    height:100%;
+    width:100%;
+    background: #008CFF;
+    color: #fff; font: 15px;
+}

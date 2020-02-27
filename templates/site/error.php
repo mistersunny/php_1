@@ -1,2 +1,3 @@
 <?php
-echo 'ERROR'; 
+echo 'ERROR </br>'; 
+?>

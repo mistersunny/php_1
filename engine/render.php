@@ -20,7 +20,6 @@ function render(string $template, array $data = [], bool $withLayout = true, str
         'layout' => "{$config['app']['templatesPath']}/layouts/{$layout}.php",
         'page' => "{$config['app']['templatesPath']}/{$template}.php"
     ];
-
     // подгружаем содержимое шаблона
     $pageView = getTemplateContent($templates['page'], $data);
 
