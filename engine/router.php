@@ -5,6 +5,7 @@
  */
 function route()
 {
+
     // берем название функции из GET
     $action = (isset($_GET['action'])) ? $_GET['action'] : 'index';
 
